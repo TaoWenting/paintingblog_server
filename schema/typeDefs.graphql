@@ -1,0 +1,33 @@
+
+scalar URL
+
+type Comment {
+  id: ID!
+  content: String!
+  painting: Painting
+  
+}
+
+type Painting {
+  id: ID!
+  name: String!
+  picture: URL
+  lastComment: Comment
+  comments: [Comment!]!
+  
+}
+
+type Query {
+  paintings: [Painting!]!
+  painting(paintingId: ID!): Painting
+
+ 
+}
+
+type Mutation {
+  addComment(paintingId: ID!, content: String!): Comment
+}
+
+type Subscription {
+  commentAdded: Comment!
+}
