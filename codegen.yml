@@ -1,0 +1,22 @@
+
+overwrite: true
+generates:
+  ./types/graphql.d.ts:
+    schema: ./schema/typeDefs.graphql
+    plugins:
+      - typescript
+      - typescript-resolvers
+
+    
+      
+    config:
+      contextType: ../context#MyContext
+      mappers:
+        # import { Comment } from '../db'
+        # The root types of Comment resolvers
+        Comment: ../db#Comment
+        Painting: ../db#Painting
+      scalars:
+        # e.g. Comment.createdAt will be of type Date
+       
+        URL: string
